@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 PLANT AID</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌿 PLANT AID</h1>
+            <p>Upload a plant image to detect diseases using AI-powered analysis</p>
+            <div style="margin-top: 15px;">
+                <a href="#developer-info" onclick="scrollToDeveloperInfo(event)" class="developer-link">
+                    👨‍💻 Meet the Developer
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-icon">📷</div>
+                <h3>Upload Plant Image</h3>
+                <p>Drag & drop an image here or click to browse</p>
+                <input type="file" id="fileInput" class="file-input" accept="image/*">
+                <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                    Choose Image
+                </button>
+                
+                <div class="preview-container" id="previewContainer" style="display: none;">
+                    <img id="imagePreview" class="image-preview" alt="Preview">
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-analyze" id="analyzeBtn" onclick="analyzeImage()" disabled>
+                        🔍 Analyze Plant
+                    </button>
+                    <button class="btn btn-clear" onclick="clearResults()">
+                        🗑️ Clear
+                    </button>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div class="results-header">
+                    <span style="font-size: 1.5rem;">📊</span>
+                    <h3>Detection Results</h3>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Analyzing your plant image...</p>
+                </div>
+
+                <div id="results" style="display: none;">
+                    <div id="predictions"></div>
+                    
+                    <div class="chart-container">
+                        <h4>Confidence Chart</h4>
+                        <div class="confidence-chart" id="confidenceChart"></div>
+                    </div>
+
+                    <div class="recommendations" id="recommendations" style="display: none;">
+                        <h4>💡 Recommendations</h4>
+                        <ul id="recommendationsList"></ul>
+                    </div>
+                </div>
+
+                <div id="placeholder" style="text-align: center; color: #666; padding: 40px;">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">🌱</div>
+                    <p>Upload a plant image to see the analysis results here</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer" id="developer-info">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🌿 About This Project</h4>
+                    <p>An AI-powered plant disease detection system that helps farmers and gardeners identify plant diseases quickly and accurately.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul>
+                        <li>✅ Real-time disease detection</li>
+                        <li>✅ Non-plant image filtering</li>
+                        <li>✅ Treatment recommendations</li>
+                        <li>✅ Confidence scoring</li>
+                        <li>✅ Multiple plant species support</li>
+                    </ul>
+                    
+                    <p style="margin-top: 20px;"><strong>📞 Contact & Support:</strong></p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:support@plantai.tech">aanshisahu08@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <a href="tel:+911234567890">+91 6306702296 </a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <a href="https://plantai.tech">www.plantai.tech</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>👨‍💻 Developer</h4>
+                    
+                    <div class="developer-card">
+                        <div class="developer-name">Aanshi Sahu</div>
+                        <div class="developer-role">Full Stack Developer</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span>📧</span>
+                                <a href="mailto:aanshisahu08@gmail.com">aanshisahu08@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>📱</span>
+                                <a href="tel:+916306702296">+91 6306702296</a>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/aanshisahu" class="social-link" title="GitHub">
+                                🐙
+                            </a>
+                            <a href="https://linkedin.com/in/aanshi-sahu" class="social-link" title="LinkedIn">
+                                💼
+                            </a>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px; color: #bdc3c7;"><strong>Business Hours:</strong></p>
+                    <ul>
+                        <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
+                        <li>Saturday: 10:00 AM - 4:00 PM</li>
+                        <li>Sunday: Emergency support only</li>
+                    </ul>
+
+                    <p style="margin-top: 20px; color: #bdc3c7;"><strong>Address:</strong></p>
+                    <p style="color: #bdc3c7;">
+                        Plant AI Technologies Pvt. Ltd.<br>
+                        Lucknow <br>
+                        UP 201309<br>
+                        India
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Plant Disease Detection System | Developed with ❤️ for Agriculture</p>
+                <p>
+                    <a href="#privacy">Privacy Policy</a> | 
+                    <a href="#terms">Terms of Service</a> | 
+                    <a href="#developer-info">Developer Info</a> | 
+                    <a href="mailto:feedback@plantai.tech">Send Feedback</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress" id="progressBar"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
